@@ -4,10 +4,16 @@ import mylib.datastructures.nodes.SNode;
 
 public class SLL {
     private SNode head;   // reference to the first node in the list
+    private int size;     // number of nodes in the list
+
     
     // constructor to create an empty list
     public SLL() {
         this.head = null;
+    }
+
+    public SLL(SNode head) {
+        this.head = head;
     }
     
     // method to check if the list is empty
@@ -27,7 +33,7 @@ public class SLL {
     }
     
     // method to insert a node at the end of the list
-    public void insertAtEnd(int data) {
+    public void insertTail(int data) {
         SNode newNode = new SNode(data);
         if (isEmpty()) {
             head = newNode;

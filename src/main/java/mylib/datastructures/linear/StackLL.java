@@ -1,5 +1,5 @@
 package mylib.datastructures.linear;
 
-public class StackLL {
+public class StackLL extends SLL{
     
 }

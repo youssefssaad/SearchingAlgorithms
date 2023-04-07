@@ -1,5 +1,5 @@
 package mylib.datastructures.linear;
 
-public class CDLL {
+public class CDLL extends DLL {
     
 }

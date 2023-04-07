@@ -1,5 +1,5 @@
 package mylib.datastructures.linear;
 
-public class CSLL {
+public class CSLL extends SLL {
     
 }

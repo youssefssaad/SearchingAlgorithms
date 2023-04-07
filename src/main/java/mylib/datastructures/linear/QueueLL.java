@@ -1,5 +1,5 @@
 package mylib.datastructures.linear;
 
-public class QueueLL {
+public class QueueLL extends SLL{
     
 }
