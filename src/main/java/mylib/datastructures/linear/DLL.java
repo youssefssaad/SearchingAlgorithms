@@ -1,7 +1,7 @@
 package mylib.datastructures.linear;
 
 import mylib.datastructures.nodes.DNode;
-
+//NOTE - Match with assignment reqs
 public class DLL {
     private DNode head;   // reference to the first node in the list
     private DNode tail;   // reference to the last node in the list

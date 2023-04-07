@@ -1,7 +1,7 @@
 package mylib.datastructures.linear;
 
 import mylib.datastructures.nodes.SNode;
-
+//NOTE - Match with assignment reqs
 public class SLL {
     private SNode head;   // reference to the first node in the list
     private int size;     // number of nodes in the list
