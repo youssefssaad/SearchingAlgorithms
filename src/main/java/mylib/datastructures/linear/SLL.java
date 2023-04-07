@@ -60,17 +60,20 @@ public class SinglyLinkedList {
         }
     }
     
-    public void sortedInsert(Node node) {
-        if (head == null || node.getData() < head.getData()) {
-            insertHead(node);
+    public void SortedInsert(Node node) {
+        if (!isSorted()) {
+            sort();
+        }
+        if (head == null || node.data < head.data) {
+            InsertHead(node);
             return;
         }
-        Node curr = head;
-        while (curr.getNext() != null && curr.getNext().getData() < node.getData()) {
-            curr = curr.getNext();
+        Node current = head;
+        while (current.next != null && current.next.data < node.data) {
+            current = current.next;
         }
-        node.setNext(curr.getNext());
-        curr.setNext(node);
+        node.next = current.next;
+        current.next = node;
         size++;
     }
     
@@ -205,9 +208,4 @@ public class SinglyLinkedList {
         System.out.println();
     }
     
-    public void clear() {
-        head = null;
-        tail = null;
-        size = 0;
-    }
 }
