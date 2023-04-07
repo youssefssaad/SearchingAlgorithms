@@ -1,4 +1,4 @@
-package module1.datastructures.trees;
+package mylib.datastructures.trees;
 
 public class AVL {
     

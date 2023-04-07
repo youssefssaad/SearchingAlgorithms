@@ -1,1 +1,5 @@
-package module1.datastructures.nodes;
+package mylib.datastructures.nodes;
+
+public class SNode {
+    
+}

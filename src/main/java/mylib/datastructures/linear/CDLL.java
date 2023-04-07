@@ -1,4 +1,4 @@
-package main.java.mylib;
+package mylib.datastructures.linear;
 
 public class CDLL {
     

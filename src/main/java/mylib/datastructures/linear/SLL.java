@@ -1,4 +1,4 @@
-package module1.datastructures.linear;
+package mylib.datastructures.linear;
 
 public class SLL {
     
