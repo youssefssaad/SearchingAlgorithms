@@ -1,6 +1,9 @@
 package mylib.datastructures.trees;
 
+import mylib.datastructures.nodes.TNode;
+//so TNode has root as parent so we can choose to use root as parent or not    
 public class BST {
+
     private TNode root;     //references the root of the tree
 
     // Default constructor initializing root to null

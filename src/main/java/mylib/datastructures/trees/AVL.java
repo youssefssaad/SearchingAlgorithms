@@ -1,5 +1,7 @@
 package mylib.datastructures.trees;
 
+import mylib.datastructures.nodes.TNode;
+//so TNode has root as parent so we can choose to use root as parent or not    
 public class AVL extends BST {
 
     public AVL() {

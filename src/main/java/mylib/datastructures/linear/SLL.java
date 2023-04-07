@@ -2,79 +2,212 @@ package mylib.datastructures.linear;
 
 import mylib.datastructures.nodes.SNode;
 //NOTE - Match with assignment reqs
-public class SLL {
-    private SNode head;   // reference to the first node in the list
-    private int size;     // number of nodes in the list
-
+public class SinglyLinkedList {
+    private Node head;
+    private Node tail;
+    private int size;
     
-    // constructor to create an empty list
-    public SLL() {
+    public SinglyLinkedList() {
         this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+    
+    public SinglyLinkedList(Node node) {
+        this.head = node;
+        this.tail = node;
+        this.size = 1;
+    }
+    
+    public void insertHead(Node node) {
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            node.setNext(head);
+            head = node;
+        }
+        size++;
+    }
+    
+    public void insertTail(Node node) {
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            tail.setNext(node);
+            tail = node;
+        }
+        size++;
+    }
+    
+    public void insert(Node node, int position) {
+        if (position < 0 || position > size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (position == 0) {
+            insertHead(node);
+        } else if (position == size) {
+            insertTail(node);
+        } else {
+            Node curr = head;
+            for (int i = 0; i < position - 1; i++) {
+                curr = curr.getNext();
+            }
+            node.setNext(curr.getNext());
+            curr.setNext(node);
+            size++;
+        }
+    }
+    
+    public void sortedInsert(Node node) {
+        if (head == null || node.getData() < head.getData()) {
+            insertHead(node);
+            return;
+        }
+        Node curr = head;
+        while (curr.getNext() != null && curr.getNext().getData() < node.getData()) {
+            curr = curr.getNext();
+        }
+        node.setNext(curr.getNext());
+        curr.setNext(node);
+        size++;
+    }
+    
+    public Node search(Node node) {
+        Node curr = head;
+        while (curr != null && curr.getData() != node.getData()) {
+            curr = curr.getNext();
+        }
+        return curr;
+    }
+    
+    public void deleteHead() {
+        if (head == null) {
+            return;
+        }
+        if (head == tail) {
+            head = null;
+            tail = null;
+        } else {
+            head = head.getNext();
+        }
+        size--;
+    }
+    
+    public void deleteTail() {
+        if (head == null) {
+            return;
+        }
+        if (head == tail) {
+            head = null;
+            tail = null;
+        } else {
+            Node curr = head;
+            while (curr.getNext() != tail) {
+                curr = curr.getNext();
+            }
+            curr.setNext(null);
+            tail = curr;
+        }
+        size--;
+    }
+    
+    public void delete(Node node) {
+        if (head == null) {
+            return;
+        }
+        if (head == node) {
+            deleteHead();
+            return;
+        }
+        Node curr = head;
+        while (curr.getNext() != null && curr.getNext() != node) {
+            curr = curr.getNext();
+        }
+        if (curr.getNext() == null) {
+            return;
+        }
+        curr.setNext(curr.getNext().getNext());
+        if (curr.getNext() == null) {
+            tail = curr;
+        }
+        size--;
+    }
+    
+    public void sort() {
+        if (size < 2) {
+            return; // list is already sorted
+        }
+        Node prev = head;
+        Node curr = prev.next;
+        while (curr != null) {
+            Node innerPrev = null;
+            Node innerCurr = head;
+            while (innerCurr != curr) {
+                if (innerCurr.value > curr.value) {
+                    // remove curr from its current position
+                    prev.next = curr.next;
+                    curr.next = null;
+    
+                    // insert curr at the beginning
+                    curr.next = head;
+                    head = curr;
+    
+                    // update innerPrev and innerCurr
+                    if (innerPrev != null) {
+                        innerPrev.next = prev.next;
+                    }
+                    innerCurr = curr.next;
+                    break;
+                }
+                innerPrev = innerCurr;
+                innerCurr = innerCurr.next;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
     }
 
-    public SLL(SNode head) {
-        this.head = head;
-    }
-    
-    // method to check if the list is empty
-    public boolean isEmpty() {
-        return head == null;
-    }
-    
-    // method to insert a node at the beginning of the list
-    public void insertAtBeginning(int data) {
-        SNode newNode = new SNode(data);
-        if (isEmpty()) {
-            head = newNode;
-        } else {
-            newNode.setNext(head);
-            head = newNode;
+
+    private boolean isSorted() {
+        if (size < 2) {
+            return true;
         }
-    }
-    
-    // method to insert a node at the end of the list
-    public void insertTail(int data) {
-        SNode newNode = new SNode(data);
-        if (isEmpty()) {
-            head = newNode;
-        } else {
-            SNode current = head;
-            while (current.getNext() != null) {
-                current = current.getNext();
+        Node prev = head;
+        Node curr = prev.next;
+        while (curr != null) {
+            if (prev.value > curr.value) {
+                return false;
             }
-            current.setNext(newNode);
+            prev = curr;
+            curr = curr.next;
+        }
+        return true;
+    }
+
+    public void clear() {
+        while (head != null) {
+            deleteHead();
         }
     }
     
-    // method to delete a node with the given data from the list
-    public void delete(int data) {
-        if (isEmpty()) {
-            return;
+    
+    public void print() {
+        Node curr = head;
+        System.out.println("List length: " + size);
+        System.out.println("Sorted status: " + (isSorted() ? "sorted" : "not sorted"));
+        System.out.print("List content: ");
+        while (curr != null) {
+            System.out.print(curr.value + " ");
+            curr = curr.next;
         }
-        if (head.getData() == data) {
-            head = head.getNext();
-            return;
-        }
-        SNode current = head;
-        while (current.getNext() != null && current.getNext().getData() != data) {
-            current = current.getNext();
-        }
-        if (current.getNext() != null) {
-            current.setNext(current.getNext().getNext());
-        }
+        System.out.println();
     }
     
-    // method to print the contents of the list
-    public void printList() {
-        if (isEmpty()) {
-            System.out.println("List is empty.");
-        } else {
-            SNode current = head;
-            while (current != null) {
-                System.out.print(current.getData() + " -> ");
-                current = current.getNext();
-            }
-            System.out.println("null");
-        }
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
     }
 }
