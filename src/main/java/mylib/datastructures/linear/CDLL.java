@@ -24,6 +24,7 @@ public class CDLL extends DLL {
         return size == 0;
     }
     
+    @Override
     public void insertHead(DNode node) {
         if (isEmpty()) {
             tail = node;
@@ -37,6 +38,7 @@ public class CDLL extends DLL {
         size++;
     }
     
+    @Override
     public void insertTail(DNode node) {
         if (isEmpty()) {
             head = node;
@@ -51,6 +53,7 @@ public class CDLL extends DLL {
         size++;
     }
     
+    @Override
     public void insert(DNode node, int position) {
         if (position < 0 || position > size) {
             throw new IndexOutOfBoundsException("Invalid position");
@@ -72,6 +75,7 @@ public class CDLL extends DLL {
         }
     }
     
+    @Override
     public void deleteHead() {
         if (isEmpty()) {
             System.out.println("List is empty");
@@ -87,6 +91,7 @@ public class CDLL extends DLL {
         size--;
     }
     
+    @Override
     public void deleteTail() {
         if (isEmpty()) {
             System.out.println("List is empty");
@@ -102,6 +107,7 @@ public class CDLL extends DLL {
         size--;
     }
     
+    @Override
     public void delete(DNode node) {
         if (isEmpty()) {
             System.out.println("List is empty");
@@ -117,6 +123,7 @@ public class CDLL extends DLL {
         }
     }
     
+    @Override
     public void sort() {
         if (isEmpty() || isSorted()) {
             return;
