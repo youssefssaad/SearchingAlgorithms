@@ -31,22 +31,65 @@ public class BST {
         this.root = root;
     }
 
-    // Create a new node with data val to be inserted into the tree
-    public void insert(int val) {
-        TNode newNode = new TNode(val);
-        insert(newNode);
+    // Recursive helper method to insert a new node into the tree
+    private void insertNode(TNode current, TNode newNode) {
+        if (newNode.getData() < current.getData()) {
+            if (current.getLeft() == null) {
+                current.setLeft(newNode);
+            } else {
+                insertNode(current.getLeft(), newNode);
+            }
+        } else {
+            if (current.getRight() == null) {
+                current.setRight(newNode);
+            } else {
+                insertNode(current.getRight(), newNode);
+            }
+        }
     }
 
-    // Insert TNode
     public void insert(TNode node) {
+        if (root == null) {
+            root = node;
+        } else {
+            insertNode(root, node);
+        }
     }
 
-    // Delete int value
+    // Helper method to find the minimum node in a subtree
+    private TNode findMinNode(TNode node) {
+        while (node.getLeft() != null) {
+            nodeMin = node.getLeft();
+        }
+        return nodeMin;
+    }
+
+    // Recursive helper method to delete a node with a given value from the tree
+    private TNode deleteNode(TNode current, int val) {
+        if (current == null) {
+            return null;
+        } else if (val < current.getData()) {
+            current.setLeft(deleteNode(current.getLeft(), val));
+        } else if (val > current.getData()) {
+            current.setRight(deleteNode(current.getRight(), val));
+        } else {
+            if (current.getLeft() == null && current.getRight() == null) { // node is a leaf (no children)
+                current = null;
+            } else if (current.getLeft() == null) { // node has one child on right
+                current = current.getRight();
+            } else if (current.getRight() == null) { // node has one child on left
+                current = current.getLeft();
+            } else { // node has two children
+                TNode minNode = findMinNode(current.getRight());
+                current.setData(minNode.getData());
+                current.setRight(deleteNode(current.getRight(), minNode.getData()));
+            }
+        }
+        return current;
+    }
+
     public void delete(int val) {
-        root = delete(root, val);
-    }
-
-    private TNode delete(TNode current, int val) {
+        root = deleteNode(root, val);
     }
 
     // Search int value
@@ -78,6 +121,22 @@ public class BST {
     }
 
     // Breadth-first traversal
-    public void printBF() {
+    public static void breadthFirst(TNode root) {
+        Queue<TNode> queue = new LinkedList<TNode>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            TNode current = queue.remove();
+            System.out.println(current.data);
+
+            if (current.left != null) {
+                queue.add(current.left);
+            }
+
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+        }
     }
+
 }
