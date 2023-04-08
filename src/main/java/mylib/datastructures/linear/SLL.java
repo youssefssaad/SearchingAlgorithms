@@ -1,7 +1,7 @@
 package mylib.datastructures.linear;
 
 import mylib.datastructures.nodes.SNode;
-//NOTE - Match with assignment reqs
+
 public class SLL {
     private SNode head;
     private SNode tail;
