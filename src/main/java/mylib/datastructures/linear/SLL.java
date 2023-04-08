@@ -60,7 +60,7 @@ public class SLL {
         }
     }
     
-    public void SortedInsert(SNode node) {
+    public void sortedInsert(SNode node) {
         if (!isSorted()) {
             sort();
         }
@@ -173,7 +173,7 @@ public class SLL {
     }
 
 
-    private boolean isSorted() {
+    public boolean isSorted() {
         if (size < 2) {
             return true;
         }

@@ -4,6 +4,7 @@ public class DNode {
     private int data;           // data stored in the node
     private DNode prev;    // reference to the previous node in the list
     private DNode next;    // reference to the next node in the list
+
     
     // constructor to create a new node with given data
     public DNode(int data) {

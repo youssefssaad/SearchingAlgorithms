@@ -9,18 +9,19 @@ public class CSLL extends SLL {
     private int size;
 
     public CSLL() {
-        head = null;
-        tail = null;
-        size = 0;
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
     public CSLL(SNode node) {
-        head = node;
-        head.setNext(head);
-        tail = node;
-        size = 1;
+        this.head = node;
+        this.head.setNext(head);
+        this.tail = node;
+        this.size = 1;
     }
 
+    @Override
     public void insertHead(SNode node) {
         if (isEmpty()) {
             head = node;
@@ -37,6 +38,7 @@ public class CSLL extends SLL {
         size++;
     }
 
+    @Override
     public void insertTail(SNode node) {
         if (isEmpty()) {
             head = node;
@@ -52,6 +54,7 @@ public class CSLL extends SLL {
         size++;
     }
 
+    @Override
     public void insert(SNode node, int position) {
         if (position < 0 || position > size) {
             System.out.println("Invalid position!");
@@ -72,6 +75,7 @@ public class CSLL extends SLL {
         }
     }
 
+    @Override
     public void sortedInsert(SNode node) {
         if (isEmpty()) {
             insertHead(node);
@@ -88,6 +92,7 @@ public class CSLL extends SLL {
         }
     }
 
+    @Override
     public SNode search(SNode node) {
         SNode current = head;
         do {
@@ -99,6 +104,7 @@ public class CSLL extends SLL {
         return null;
     }
 
+    @Override
     public void deleteHead() {
         if (isEmpty()) {
             System.out.println("List is empty!");
@@ -113,6 +119,7 @@ public class CSLL extends SLL {
         }
     }
 
+    @Override
     public void deleteTail() {
         if (isEmpty()) {
             System.out.println("List is empty!");
@@ -129,6 +136,7 @@ public class CSLL extends SLL {
         }
     }
 
+    @Override
     public void delete(SNode node) {
         if (isEmpty()) {
             System.out.println("List is empty. Deletion failed.");
@@ -162,6 +170,7 @@ public class CSLL extends SLL {
         System.out.println("Node not found. Deletion failed.");
     }
     
+    @Override
     public void sort() {
         if (isEmpty()) {
             System.out.println("List is empty. Sort failed.");
@@ -184,6 +193,7 @@ public class CSLL extends SLL {
         }
     }
     
+    @Override
     public boolean isSorted() {
         if (isEmpty() || head == tail) {
             return true;
@@ -199,6 +209,7 @@ public class CSLL extends SLL {
         return true;
     }
     
+    @Override
     public void print() {
         if (isEmpty()) {
             System.out.println("List is empty.");
