@@ -2,24 +2,24 @@ package mylib.datastructures.linear;
 
 import mylib.datastructures.nodes.SNode;
 //NOTE - Match with assignment reqs
-public class SinglyLinkedList {
-    private Node head;
-    private Node tail;
+public class SLL {
+    private SNode head;
+    private SNode tail;
     private int size;
     
-    public SinglyLinkedList() {
+    public SLL() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
     
-    public SinglyLinkedList(Node node) {
+    public SLL(SNode node) {
         this.head = node;
         this.tail = node;
         this.size = 1;
     }
     
-    public void insertHead(Node node) {
+    public void insertHead(SNode node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -30,7 +30,7 @@ public class SinglyLinkedList {
         size++;
     }
     
-    public void insertTail(Node node) {
+    public void insertTail(SNode node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -41,7 +41,7 @@ public class SinglyLinkedList {
         size++;
     }
     
-    public void insert(Node node, int position) {
+    public void insert(SNode node, int position) {
         if (position < 0 || position > size) {
             throw new IndexOutOfBoundsException();
         }
@@ -50,7 +50,7 @@ public class SinglyLinkedList {
         } else if (position == size) {
             insertTail(node);
         } else {
-            Node curr = head;
+            SNode curr = head;
             for (int i = 0; i < position - 1; i++) {
                 curr = curr.getNext();
             }
@@ -60,25 +60,25 @@ public class SinglyLinkedList {
         }
     }
     
-    public void SortedInsert(Node node) {
+    public void SortedInsert(SNode node) {
         if (!isSorted()) {
             sort();
         }
-        if (head == null || node.data < head.data) {
-            InsertHead(node);
+        if (head == null || node.getData() < head.getData()) {
+            insertHead(node);
             return;
         }
-        Node current = head;
-        while (current.next != null && current.next.data < node.data) {
-            current = current.next;
+        SNode current = head;
+        while (current.getNext() != null && current.getNext().getData() < node.getData()) {
+            current = current.getNext();
         }
-        node.next = current.next;
-        current.next = node;
+        node.setNext(current.getNext());
+        current.setNext(node);
         size++;
     }
     
-    public Node search(Node node) {
-        Node curr = head;
+    public SNode search(SNode node) {
+        SNode curr = head;
         while (curr != null && curr.getData() != node.getData()) {
             curr = curr.getNext();
         }
@@ -106,7 +106,7 @@ public class SinglyLinkedList {
             head = null;
             tail = null;
         } else {
-            Node curr = head;
+            SNode curr = head;
             while (curr.getNext() != tail) {
                 curr = curr.getNext();
             }
@@ -116,7 +116,7 @@ public class SinglyLinkedList {
         size--;
     }
     
-    public void delete(Node node) {
+    public void delete(SNode node) {
         if (head == null) {
             return;
         }
@@ -124,7 +124,7 @@ public class SinglyLinkedList {
             deleteHead();
             return;
         }
-        Node curr = head;
+        SNode curr = head;
         while (curr.getNext() != null && curr.getNext() != node) {
             curr = curr.getNext();
         }
@@ -142,33 +142,33 @@ public class SinglyLinkedList {
         if (size < 2) {
             return; // list is already sorted
         }
-        Node prev = head;
-        Node curr = prev.next;
+        SNode prev = head;
+        SNode curr = prev.getNext();
         while (curr != null) {
-            Node innerPrev = null;
-            Node innerCurr = head;
+            SNode innerPrev = null;
+            SNode innerCurr = head;
             while (innerCurr != curr) {
-                if (innerCurr.value > curr.value) {
+                if (innerCurr.getData() > curr.getData()) {
                     // remove curr from its current position
-                    prev.next = curr.next;
-                    curr.next = null;
+                    prev.setNext(curr.getNext());
+                    curr.setNext(null);
     
                     // insert curr at the beginning
-                    curr.next = head;
+                    curr.setNext(head);
                     head = curr;
     
                     // update innerPrev and innerCurr
                     if (innerPrev != null) {
-                        innerPrev.next = prev.next;
+                        innerPrev.setNext(prev.getNext());
                     }
-                    innerCurr = curr.next;
+                    innerCurr = curr.getNext();
                     break;
                 }
                 innerPrev = innerCurr;
-                innerCurr = innerCurr.next;
+                innerCurr = innerCurr.getNext();
             }
             prev = curr;
-            curr = curr.next;
+            curr = curr.getNext();
         }
     }
 
@@ -177,14 +177,14 @@ public class SinglyLinkedList {
         if (size < 2) {
             return true;
         }
-        Node prev = head;
-        Node curr = prev.next;
+        SNode prev = head;
+        SNode curr = prev.getNext();
         while (curr != null) {
-            if (prev.value > curr.value) {
+            if (prev.getData() > curr.getData()) {
                 return false;
             }
             prev = curr;
-            curr = curr.next;
+            curr = curr.getNext();
         }
         return true;
     }
@@ -197,13 +197,13 @@ public class SinglyLinkedList {
     
     
     public void print() {
-        Node curr = head;
+        SNode curr = head;
         System.out.println("List length: " + size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "not sorted"));
         System.out.print("List content: ");
         while (curr != null) {
-            System.out.print(curr.value + " ");
-            curr = curr.next;
+            System.out.print("The Value of the List Element is:"+curr.getData() + ". \n");
+            curr = curr.getNext();
         }
         System.out.println();
     }
