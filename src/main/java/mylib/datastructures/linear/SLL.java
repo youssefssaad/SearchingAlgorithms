@@ -207,5 +207,13 @@ public class SLL {
         }
         System.out.println();
     }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public int getSize() {
+        return size;
+    }
     
 }
