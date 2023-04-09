@@ -18,7 +18,9 @@ public class BFS<T> {
         }
         return visited;
     }
+}
 
+class Main{
     public static void main(String[] args) {
         Map<Integer, List<Integer>> graph = new HashMap<>();
         graph.put(1, Arrays.asList(2));
