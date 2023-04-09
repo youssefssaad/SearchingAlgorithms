@@ -18,4 +18,20 @@ public class BFS<T> {
         }
         return visited;
     }
+
+    public static void main(String[] args) {
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        graph.put(1, Arrays.asList(2));
+        graph.put(2, Arrays.asList(3));
+        graph.put(3, Arrays.asList(4,5));
+        graph.put(4, Arrays.asList());
+        graph.put(5, Arrays.asList(6,7));
+        graph.put(6, Arrays.asList());
+        graph.put(7, Arrays.asList());
+
+        BFS<Integer> bfs = new BFS<>();
+        List<Integer> visited = bfs.bfs(graph, 1);
+
+        System.out.println(visited);
+    }
 }
