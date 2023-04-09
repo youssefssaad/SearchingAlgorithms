@@ -215,5 +215,9 @@ public class SLL {
     public int getSize() {
         return size;
     }
+
+    public SNode getHead() {
+        return head;
+    }
     
 }

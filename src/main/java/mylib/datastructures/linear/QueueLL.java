@@ -16,8 +16,8 @@ public class QueueLL extends SLL {
     }
     
     // Remove element from the front of the queue
-    public SNode dequeue() {
-        return deleteHead();
+    public void dequeue() {
+        deleteHead();
     }
     
     // Check if the queue is empty
