@@ -14,19 +14,19 @@ public class AVL extends BST {
         this.root = new TNode(val);
     }
 
-    private void AVLTree(TNode node) {
+    private void AVL(TNode node) {
         this.root = node;
         if (this.root != null) {
             balance();
         }
     }
 
-    public AVLTree(TNode obj) {
-        AVLTree(obj);
+    public AVL(TNode obj) {
+        AVL(obj);
     }
 
     public void setRoot(TNode node) {
-        AVLTree(node);
+        AVL(node);
     }
 
     public TNode getRoot() {
@@ -128,11 +128,6 @@ public class AVL extends BST {
     }
 
     private TNode delete(TNode current, int val) {
-        if (current == null) {
-            System.out.println(val + " is not found in the tree");
-            return current;
-        }
-
         if (val < current.data) {
             current.left = delete(current.left, val);
         } else if (val > current.data) {
