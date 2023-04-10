@@ -1,4 +1,4 @@
-package mylib.datastructures.linear;
+
 
 import mylib.datastructures.nodes.DNode;
 import org.junit.jupiter.api.BeforeEach;
