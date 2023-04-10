@@ -1,29 +1,30 @@
 package mylib.Graphalgo;
 
 import java.util.*;
+import mylib.datastructures.nodes.SNode;
 
 class Graph {
     int[] dist;
     Set<Integer> visited;
-    PriorityQueue<Node> queue;
+    PriorityQueue<SNode> queue;
     int numVertices;
-    List<List<Node> > adjList;
+    List<List<SNode> > adjList;
 
     public Graph(int numVertices) {
         this.numVertices = numVertices;
         dist = new int[numVertices];
         visited = new HashSet<Integer>();
-        queue = new PriorityQueue<Node>(numVertices, new Node());
+        queue = new PriorityQueue<SNode>(numVertices, new SNode());
     }
 
-    public void dijkstra(List<List<Node> > adjList, int src) {
+    public void dijkstra(List<List<SNode> > adjList, int src) {
         this.adjList = adjList;
 
         for (int i = 0; i < numVertices; i++) {
             dist[i] = Integer.MAX_VALUE;
         }
 
-        queue.add(new Node(src, 0));
+        queue.add(new SNode(src, 0));
 
         dist[src] = 0;
 
@@ -40,7 +41,7 @@ class Graph {
         int newDistance = -1;
 
         for (int i = 0; i < adjList.get(u).size(); i++) {
-            Node v = adjList.get(u).get(i);
+            SNode v = adjList.get(u).get(i);
 
             if (!visited.contains(v.node)) {
                 edgeDistance = v.cost;
@@ -50,12 +51,12 @@ class Graph {
                     dist[v.node] = newDistance;
                 }
 
-                queue.add(new Node(v.node, dist[v.node]));
+                queue.add(new SNode(v.node, dist[v.node]));
             }
         }
     }
 }
-
+/* 
 class Main{
     public static void main(String arg[])   {
         int numVertices = 5;
@@ -104,4 +105,4 @@ class Node implements Comparator<Node> {
             return 1;
         return 0;
     }
-}
+}*/
