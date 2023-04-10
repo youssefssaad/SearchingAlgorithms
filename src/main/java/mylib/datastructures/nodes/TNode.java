@@ -81,3 +81,40 @@ public class TNode {
     }
 }
 
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        TNode node1 = new TNode(10, 0, null, null, null);
+        TNode node2 = new TNode(20, 0, null, null, null);
+        TNode node3 = new TNode(74, 0, null, null, null);
+
+        // data set and get
+        node1.setData(50);
+        System.out.println(node1.getData());
+
+        // left-child set and get
+        node1.setLeftChild(node2);
+        System.out.println(node1.getLeftChild().getData());
+
+        // right-child set and get
+        node1.setRightChild(node3);
+        System.out.println(node1.getRightChild().getData());
+
+        // parent set and get
+        node2.setParent(node1);
+        System.out.println(node2.getParent().getData());
+
+        // balance factor set and get
+        node1.setBalance(1);
+        System.out.println(node1.getBalance());
+
+        // print
+        node1.print();
+
+        // toString
+        System.out.println(node1.toString());
+    }
+}
+
