@@ -1,10 +1,10 @@
 package mylib.datastructures.trees;
 
 import mylib.datastructures.nodes.TNode;
-//so TNode has root as parent so we can choose to use root as parent or not    
+
 public class AVL extends BST {
 
-    private mylib.datastructures.nodes.TNode root;     //references the root of the tree
+    private TNode root;
 
     public AVL() {
         this.root = null;
@@ -13,7 +13,6 @@ public class AVL extends BST {
     public AVL(int val) {
         this.root = new TNode(val);
     }
-
 
     public AVL(TNode obj) {
         this.root = obj;
@@ -33,28 +32,28 @@ public class AVL extends BST {
         return this.root;
     }
 
-    private void balance(TNode node) {
+    public void balance(TNode node) {
         if (node == null) {
             return;
         }
+
         int balanceFactor = getBalanceFactor(node);
         if (balanceFactor > 1) {
-            // left heavy subtree
-            if (getBalanceFactor(node.getLeft()) < 0) {
-                // left-right case
+            if (getBalanceFactor(node.getLeft()) >= 0) {
+                node = rotateRight(node);
+            } else {
                 node.setLeft(rotateLeft(node.getLeft()));
+                node = rotateRight(node);
             }
-            // left-left case
-            node = rotateRight(node);
         } else if (balanceFactor < -1) {
-            // right heavy subtree
-            if (getBalanceFactor(node.getRight()) > 0) {
-                // right-left case
+            if (getBalanceFactor(node.getRight()) <= 0) {
+                node = rotateLeft(node);
+            } else {
                 node.setRight(rotateRight(node.getRight()));
+                node = rotateLeft(node);
             }
-            // right-right case
-            node = rotateLeft(node);
         }
+
         if (node.getParent() != null) {
             balance(node.getParent());
         } else {
@@ -62,21 +61,21 @@ public class AVL extends BST {
         }
     }
 
-    private int getBalanceFactor(TNode node) {
+    public int getBalanceFactor(TNode node) {
         if (node == null) {
             return 0;
         }
         return getHeight(node.getLeft()) - getHeight(node.getRight());
     }
 
-    private int getHeight(TNode node) {
+    public int getHeight(TNode node) {
         if (node == null) {
             return 0;
         }
         return Math.max(getHeight(node.getLeft()), getHeight(node.getRight())) + 1;
     }
 
-    private TNode rotateLeft(TNode node) {
+    public TNode rotateLeft(TNode node) {
         TNode newRoot = node.getRight();
         node.setRight(newRoot.getLeft());
         if (newRoot.getLeft() != null) {
@@ -95,7 +94,7 @@ public class AVL extends BST {
         return newRoot;
     }
 
-    private TNode rotateRight(TNode node) {
+    public TNode rotateRight(TNode node) {
         TNode newRoot = node.getLeft();
         node.setLeft(newRoot.getRight());
         if (newRoot.getRight() != null) {
@@ -114,75 +113,54 @@ public class AVL extends BST {
         return newRoot;
     }
 
-    
-    public void insert(int val) {
-        TNode newNode = new TNode(val);
-        super.insert(newNode);
-        balance(newNode);
-    }
-
     @Override
     public void insert(TNode node) {
         super.insert(node);
         balance(node);
     }
 
+    public void insert(int val) {
+        TNode newNode = new TNode(val);
+        super.insert(newNode);
+        balance(newNode);
+    }
+
     public TNode delete(TNode current, int val) {
+        if (current == null) {
+            System.out.println("Value not found in tree");
+            return current;
+        }
         if (val < current.getData()) {
             current.setLeft(delete(current.getLeft(), val));
         } else if (val > current.getData()) {
             current.setRight(delete(current.getRight(), val));
-        } else if (val == current.getData()){
-            if (current.getLeft() == null || current.getRight() == null) {
-                TNode temp = null;
-                if (temp == current.getLeft()) {
-                    temp = current.getRight();
+        } else {
+            // current node is the one to be deleted
+            if (current.getLeft() == null && current.getRight() == null) {
+                // Case 1: Node has no children
+                current = null;
+            } else if (current.getLeft() == null || current.getRight() == null) {
+                // Case 2: Node has one child
+                if (current.getLeft() == null) {
+                    current = current.getRight();
                 } else {
-                    temp = current.getLeft();
-                }
-
-                if (temp == null) {
-                    temp = current;
-                    current = null;
-                } else {
-                    current = temp;
+                    current = current.getLeft();
                 }
             } else {
+                // Case 3: Node has two children
                 TNode temp = minValueNode(current.getRight());
                 current.setData(temp.getData());
                 current.setRight(delete(current.getRight(), temp.getData()));
             }
-        } else {
-            System.out.println("Value not found in tree");
-            return current;
         }
-
+    
         if (current == null) {
-            System.out.println("Tree is empty");
             return current;
         }
-
+    
         // Rebalance the tree
-        int balanceFactor = getBalanceFactor(current);
-
-        if (balanceFactor > 1 && getBalanceFactor(current.getLeft()) >= 0) {
-            return rotateRight(current);
-        }
-
-        if (balanceFactor > 1 && getBalanceFactor(current.getLeft()) < 0) {
-            current.setLeft(rotateLeft(current.getLeft()));
-            return rotateRight(current);
-        }
-
-        if (balanceFactor < -1 && getBalanceFactor(current.getRight()) <= 0) {
-            return rotateLeft(current);
-        }
-
-        if (balanceFactor < -1 && getBalanceFactor(current.getRight()) > 0) {
-            current.setRight(rotateRight(current.getRight()));
-            return rotateLeft(current);
-        }
-
+        balance(current);
+    
         return current;
     }
 
@@ -197,56 +175,5 @@ public class AVL extends BST {
     public void delete(int val) {
         root = delete(root, val);
     }
-
 }
-
-/*package mylib.datastructures.trees;
-
-import mylib.datastructures.nodes.TNode;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class AVLTest {
-
-    @Test
-    public void testInsertAndBalance() {
-        AVL tree = new AVL();
-        tree.insert(5);
-        tree.insert(10);
-        tree.insert(15);
-        tree.insert(20);
-        assertEquals(15, tree.getRoot().getData());
-        assertEquals(10, tree.getRoot().getLeft().getData());
-        assertEquals(20, tree.getRoot().getRight().getData());
-        assertEquals(5, tree.getRoot().getLeft().getLeft().getData());
-    }
-
-    @Test
-    public void testDeleteAndBalance() {
-        AVL tree = new AVL();
-        tree.insert(5);
-        tree.insert(10);
-        tree.insert(15);
-        tree.insert(20);
-        tree.delete(tree.getRoot(), 10);
-        assertEquals(15, tree.getRoot().getData());
-        assertEquals(5, tree.getRoot().getLeft().getData());
-        assertEquals(20, tree.getRoot().getRight().getData());
-    }
-
-    @Test
-    public void testInsertAndGetRoot() {
-        AVL tree = new AVL(10);
-        assertEquals(10, tree.getRoot().getData());
-    }
-
-    @Test
-    public void testSetAndGetRoot() {
-        AVL tree = new AVL();
-        tree.setRoot(new TNode(10));
-        assertEquals(10, tree.getRoot().getData());
-    }
-}
- */
 

@@ -13,12 +13,12 @@ public class CDLLTest {
     private CDLL cdll;
 
     @Before
-    void setUp() {
+    public void setUp() {
         cdll = new CDLL();
     }
 
     @Test
-    void testInsertHead() {
+    public void testInsertHead() {
         DNode node = new DNode(1);
         cdll.insertHead(node);
         assertEquals(cdll.size(), 1);
@@ -35,7 +35,7 @@ public class CDLLTest {
     }
 
     @Test
-    void testInsertTail() {
+    public void testInsertTail() {
         DNode node = new DNode(1);
         cdll.insertTail(node);
         assertEquals(cdll.size(), 1);
@@ -52,7 +52,7 @@ public class CDLLTest {
     }
 
     @Test
-    void testInsert() {
+    public void testInsert() {
         DNode node = new DNode(1);
         cdll.insert(node, 0);
         assertEquals(cdll.size(), 1);
@@ -77,7 +77,7 @@ public class CDLLTest {
     }
 
     @Test
-    void testDeleteHead() {
+    public void testDeleteHead() {
 
         DNode node = new DNode(1);
         cdll.insertHead(node);
@@ -97,7 +97,7 @@ public class CDLLTest {
     }
 
 	@Test
-    void testDeleteTail() {
+    public void testDeleteTail() {
 
         DNode node = new DNode(1);
         cdll.insertHead(node);
@@ -116,7 +116,7 @@ public class CDLLTest {
     }
 
     @Test
-    void testDelete() {
+    public void testDelete() {
 
         DNode node = new DNode(1);
         cdll.insertHead(node);
