@@ -1,4 +1,5 @@
 package mylib.datastructures.trees;
+import java.util.*;
 
 import mylib.datastructures.nodes.TNode;
 //so TNode has root as parent so we can choose to use root as parent or not    
@@ -58,6 +59,7 @@ public class BST {
 
     // Helper method to find the minimum node in a subtree
     private TNode findMinNode(TNode node) {
+        TNode nodeMin = node;
         while (node.getLeft() != null) {
             nodeMin = node.getLeft();
         }
@@ -121,20 +123,19 @@ public class BST {
     }
 
     // Breadth-first traversal
-    public static void breadthFirst(TNode root) {
-        Queue<TNode> queue = new LinkedList<TNode>();
-        queue.add(root);
-
-        while (!queue.isEmpty()) {
-            TNode current = queue.remove();
-            System.out.println(current.data);
-
-            if (current.left != null) {
-                queue.add(current.left);
-            }
-
-            if (current.right != null) {
-                queue.add(current.right);
+    public void printBF() {
+        Queue<TNode> queue = new LinkedList<>();
+        if (root != null) {
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                TNode current = queue.remove();
+                System.out.print(current.getData() + " ");
+                if (current.getLeft() != null) {
+                    queue.add(current.getLeft());
+                }
+                if (current.getRight() != null) {
+                    queue.add(current.getRight());
+                }
             }
         }
     }

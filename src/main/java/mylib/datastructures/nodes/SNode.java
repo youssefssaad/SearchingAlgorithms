@@ -30,6 +30,7 @@ public class SNode {
     }
 }
 
+/* 
 public class Main {
 
     public static void main(String[] args) {
@@ -108,5 +109,5 @@ public class Main {
         assert node2.getNext() == node4;
         assert node4.getNext() == node3;
     }
-}
+}*/
 

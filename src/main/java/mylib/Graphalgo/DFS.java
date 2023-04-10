@@ -1,3 +1,5 @@
+package mylib.Graphalgo;
+
 import java.util.*;
 
 public class DFS<T> {

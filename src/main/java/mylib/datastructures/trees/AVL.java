@@ -17,7 +17,7 @@ public class AVL extends BST {
     private void AVL(TNode node) {
         this.root = node;
         if (this.root != null) {
-            balance();
+            balance(node);
         }
     }
 
@@ -40,23 +40,23 @@ public class AVL extends BST {
         int balanceFactor = getBalanceFactor(node);
         if (balanceFactor > 1) {
             // left heavy subtree
-            if (getBalanceFactor(node.left) < 0) {
+            if (getBalanceFactor(node.getLeft()) < 0) {
                 // left-right case
-                node.left = rotateLeft(node.left);
+                node.setLeft(rotateLeft(node.getLeft()));
             }
             // left-left case
             node = rotateRight(node);
         } else if (balanceFactor < -1) {
             // right heavy subtree
-            if (getBalanceFactor(node.right) > 0) {
+            if (getBalanceFactor(node.getRight()) > 0) {
                 // right-left case
-                node.right = rotateRight(node.right);
+                node.setRight(rotateRight(node.getRight()));
             }
             // right-right case
             node = rotateLeft(node);
         }
-        if (node.parent != null) {
-            balance(node.parent);
+        if (node.getParent() != null) {
+            balance(node.getParent());
         } else {
             root = node;
         }
@@ -66,79 +66,79 @@ public class AVL extends BST {
         if (node == null) {
             return 0;
         }
-        return getHeight(node.left) - getHeight(node.right);
+        return getHeight(node.getLeft()) - getHeight(node.getRight());
     }
 
     private int getHeight(TNode node) {
         if (node == null) {
             return 0;
         }
-        return Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        return Math.max(getHeight(node.getLeft()), getHeight(node.getRight())) + 1;
     }
 
     private TNode rotateLeft(TNode node) {
-        TNode newRoot = node.right;
-        node.right = newRoot.left;
-        if (newRoot.left != null) {
-            newRoot.left.parent = node;
+        TNode newRoot = node.getRight();
+        node.setRight(newRoot.getLeft());
+        if (newRoot.getLeft() != null) {
+            newRoot.getLeft().setParent(node);
         }
-        newRoot.parent = node.parent;
-        if (node.parent == null) {
+        newRoot.setParent(node.getParent());
+        if (node.getParent() == null) {
             root = newRoot;
-        } else if (node == node.parent.left) {
-            node.parent.left = newRoot;
+        } else if (node == node.getParent().getLeft()) {
+            node.getParent().setLeft(newRoot);
         } else {
-            node.parent.right = newRoot;
+            node.getParent().setRight(newRoot);
         }
-        newRoot.left = node;
-        node.parent = newRoot;
+        newRoot.setLeft(node);
+        node.setParent(newRoot);
         return newRoot;
     }
 
     private TNode rotateRight(TNode node) {
-        TNode newRoot = node.left;
-        node.left = newRoot.right;
-        if (newRoot.right != null) {
-            newRoot.right.parent = node;
+        TNode newRoot = node.getLeft();
+        node.setLeft(newRoot.getRight());
+        if (newRoot.getRight() != null) {
+            newRoot.getRight().setParent(node);
         }
-        newRoot.parent = node.parent;
-        if (node.parent == null) {
+        newRoot.setParent(node.getParent());
+        if (node.getParent() == null) {
             root = newRoot;
-        } else if (node == node.parent.right) {
-            node.parent.right = newRoot;
+        } else if (node == node.getParent().getRight()) {
+            node.getParent().setRight(newRoot);
         } else {
-            node.parent.left = newRoot;
+            node.getParent().setLeft(newRoot);
         }
-        newRoot.right = node;
-        node.parent = newRoot;
+        newRoot.setRight(node);
+        node.setParent(newRoot);
         return newRoot;
     }
 
-    @Override
+    
     public void insert(int val) {
         TNode newNode = new TNode(val);
         super.insert(newNode);
-        balance();
+        balance(newNode);
     }
 
     @Override
     public void insert(TNode node) {
         super.insert(node);
-        balance();
+        balance(node);
     }
 
     private TNode delete(TNode current, int val) {
-        if (val < current.data) {
-            current.left = delete(current.left, val);
-        } else if (val > current.data) {
-            current.right = delete(current.right, val);
+        if (val < current.getData()) {
+            current.setLeft(delete(current.getLeft(), val));
+        } else if (val > current.getData()) {
+            current.setRight(delete(current.getRight(), val));
         } else {
-            if (current.left == null || current.right == null) {
+            if (current.getLeft() == null || current.getRight() == null) {
                 TNode temp = null;
-                if (temp == current.left) {
-                    temp = current.right;
+                if (temp == current.getLeft()) {
+                    temp = current.getRight();
                 } else {
-                    temp = current.left;
+                    temp = current.getLeft();
                 }
 
                 if (temp == null) {
@@ -148,9 +148,9 @@ public class AVL extends BST {
                     current = temp;
                 }
             } else {
-                TNode temp = minValueNode(current.right);
-                current.data = temp.data;
-                current.right = delete(current.right, temp.data);
+                TNode temp = minValueNode(current.getRight());
+                current.setData(temp.getData());
+                current.setRight(delete(current.getRight(), temp.getData()));
             }
         }
 
@@ -158,27 +158,24 @@ public class AVL extends BST {
             return current;
         }
 
-        // Update the height of the current node
-        current.height = Math.max(height(current.left), height(current.right)) + 1;
-
         // Rebalance the tree
         int balanceFactor = getBalanceFactor(current);
 
-        if (balanceFactor > 1 && getBalanceFactor(current.left) >= 0) {
+        if (balanceFactor > 1 && getBalanceFactor(current.getLeft()) >= 0) {
             return rotateRight(current);
         }
 
-        if (balanceFactor > 1 && getBalanceFactor(current.left) < 0) {
-            current.left = rotateLeft(current.left);
+        if (balanceFactor > 1 && getBalanceFactor(current.getLeft()) < 0) {
+            current.setLeft(rotateLeft(current.getLeft()));
             return rotateRight(current);
         }
 
-        if (balanceFactor < -1 && getBalanceFactor(current.right) <= 0) {
+        if (balanceFactor < -1 && getBalanceFactor(current.getRight()) <= 0) {
             return rotateLeft(current);
         }
 
-        if (balanceFactor < -1 && getBalanceFactor(current.right) > 0) {
-            current.right = rotateRight(current.right);
+        if (balanceFactor < -1 && getBalanceFactor(current.getRight()) > 0) {
+            current.setRight(rotateRight(current.getRight()));
             return rotateLeft(current);
         }
 
@@ -187,8 +184,8 @@ public class AVL extends BST {
 
     private TNode minValueNode(TNode node) {
         TNode current = node;
-        while (current.left != null) {
-            current = current.left;
+        while (current.getLeft() != null) {
+            current = current.getLeft();
         }
         return current;
     }
@@ -196,3 +193,4 @@ public class AVL extends BST {
     public void delete(int val) {
         root = delete(root, val);
     }
+}
