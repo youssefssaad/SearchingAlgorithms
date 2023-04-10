@@ -14,19 +14,19 @@ public class AVL extends BST {
         this.root = new TNode(val);
     }
 
-    private void AVL(TNode node) {
+
+    public AVL(TNode obj) {
+        this.root = obj;
+        if (this.root != null) {
+            balance(obj);
+        }
+    }
+
+    public void setRoot(TNode node) {
         this.root = node;
         if (this.root != null) {
             balance(node);
         }
-    }
-
-    public AVL(TNode obj) {
-        AVL(obj);
-    }
-
-    public void setRoot(TNode node) {
-        AVL(node);
     }
 
     public TNode getRoot() {
