@@ -132,7 +132,7 @@ public class AVL extends BST {
             current.setLeft(delete(current.getLeft(), val));
         } else if (val > current.getData()) {
             current.setRight(delete(current.getRight(), val));
-        } else {
+        } else if (val == current.getData()){
             if (current.getLeft() == null || current.getRight() == null) {
                 TNode temp = null;
                 if (temp == current.getLeft()) {
@@ -152,9 +152,13 @@ public class AVL extends BST {
                 current.setData(temp.getData());
                 current.setRight(delete(current.getRight(), temp.getData()));
             }
+        } else {
+            System.out.println("Value not found in tree");
+            return current;
         }
 
         if (current == null) {
+            System.out.println("Tree is empty");
             return current;
         }
 
@@ -193,4 +197,7 @@ public class AVL extends BST {
     public void delete(int val) {
         root = delete(root, val);
     }
+
+
+
 }
