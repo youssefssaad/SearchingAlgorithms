@@ -83,38 +83,50 @@ public class TNode {
 
 
 public class Main {
-
     public static void main(String[] args) {
 
-        TNode node1 = new TNode(10, 0, null, null, null);
-        TNode node2 = new TNode(20, 0, null, null, null);
-        TNode node3 = new TNode(74, 0, null, null, null);
+        // Test default constructor
+        TNode node1 = new TNode();
+        assertEquals(0, node1.getData());
+        assertNull(node1.getLeftChild());
+        assertNull(node1.getRightChild());
+        assertNull(node1.getParent());
+        assertEquals(0, node1.getBalance());
 
-        // data set and get
-        node1.setData(50);
-        System.out.println(node1.getData());
+        // Test overload constructor
+        TNode leftChild = new TNode(3, 0, null, null, null);
+        TNode rightChild = new TNode(7, 0, null, null, null);
+        TNode parent = new TNode(5, 0, null, leftChild, rightChild);
+        TNode node2 = new TNode(10, 1, parent, null, null);
+        assertEquals(10, node2.getData());
+        assertNull(node2.getLeftChild());
+        assertNull(node2.getRightChild());
+        assertEquals(parent, node2.getParent());
+        assertEquals(1, node2.getBalance());
 
-        // left-child set and get
+        TNode node3 = new TNode(15, 0, parent, null, null);
+        TNode node4 = new TNode(28, 0, rightChild, null, null);
+
+        // test getters and setters
+        node1.setData(20);
+        assertEquals(20, node1.getData());
+
+        node1.setParent(node4);
+        assertEquals(node4, node1.getParent());
+
         node1.setLeftChild(node2);
-        System.out.println(node1.getLeftChild().getData());
+        assertEquals(node2, node1.getLeftChild());
 
-        // right-child set and get
         node1.setRightChild(node3);
-        System.out.println(node1.getRightChild().getData());
+        assertEquals(node3, node1.getRightChild());
 
-        // parent set and get
-        node2.setParent(node1);
-        System.out.println(node2.getParent().getData());
+        node1.setBalance(-1);
+        assertEquals(-1, node1.getBalance());
 
-        // balance factor set and get
-        node1.setBalance(1);
-        System.out.println(node1.getBalance());
-
-        // print
+        // test print method
         node1.print();
 
-        // toString
-        System.out.println(node1.toString());
+        // test toString method
+        assertEquals("20", node1.toString());
     }
 }
-
