@@ -68,12 +68,17 @@ public class SLL {
             insertHead(node);
             return;
         }
-        SNode current = head;
-        while (current.getNext() != null && current.getNext().getData() < node.getData()) {
-            current = current.getNext();
+        SNode prev = head;
+        SNode curr = prev.getNext();
+        while (curr != null && node.getData() > curr.getData()) {
+            prev = curr;
+            curr = curr.getNext();
         }
-        node.setNext(current.getNext());
-        current.setNext(node);
+        prev.setNext(node);
+        node.setNext(curr);
+        if (curr == null) {
+            tail = node;
+        }
         size++;
     }
     
@@ -143,9 +148,6 @@ public class SLL {
     }
     
     public void sort() {
-        if (size < 2) {
-            return; // list is already sorted
-        }
         SNode prev = head;
         SNode curr = prev.getNext();
         while (curr != null) {
