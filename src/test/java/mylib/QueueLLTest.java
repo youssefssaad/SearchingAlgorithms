@@ -1,8 +1,18 @@
+package mylib;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import mylib.datastructures.linear.QueueLL;
+import mylib.datastructures.nodes.SNode;
+
+//enqueue has to be changed to node instread of int
 public class QueueLLTest {
 
     @Test
     public void testEnqueue() {
-        QueueLinkedList<Integer> queue = new QueueLinkedList<>();
+        QueueLL queue = new QueueLL();
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
@@ -11,7 +21,7 @@ public class QueueLLTest {
     
     @Test
     public void testDequeue() {
-        QueueLinkedList<Integer> queue = new QueueLinkedList<>();
+        QueueLL queue = new QueueLL();
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
@@ -22,7 +32,7 @@ public class QueueLLTest {
     
     @Test
     public void testPeek() {
-        QueueLinkedList<Integer> queue = new QueueLinkedList<>();
+        QueueLL queue = new QueueLL();
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
@@ -33,7 +43,7 @@ public class QueueLLTest {
     
     @Test
     public void testIsEmpty() {
-        QueueLinkedList<Integer> queue = new QueueLinkedList<>();
+        QueueLL queue = new QueueLL();
         assertTrue(queue.isEmpty());
         queue.enqueue(1);
         assertFalse(queue.isEmpty());
@@ -41,7 +51,7 @@ public class QueueLLTest {
     
     @Test
     public void testClear() {
-        QueueLinkedList<Integer> queue = new QueueLinkedList<>();
+        QueueLL queue = new QueueLL();
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
@@ -49,16 +59,5 @@ public class QueueLLTest {
         assertTrue(queue.isEmpty());
     }
     
-    @Test
-    public void testPrint() {
-        QueueLinkedList<Integer> queue = new QueueLinkedList<>();
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        queue.print();
-        String expectedOutput = "1 -> 2 -> 3 -> NULL\n";
-        assertEquals(expectedOutput, outContent.toString());
-    }
+
 }

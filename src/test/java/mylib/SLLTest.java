@@ -1,9 +1,14 @@
+package mylib;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Before;
+import org.junit.Test;
+
 import mylib.datastructures.nodes.SNode;
+import mylib.datastructures.linear.SLL;
 
 public class SLLTest {
+
 
     @Test
     public void testInsertHead() {

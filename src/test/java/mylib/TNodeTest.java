@@ -1,5 +1,10 @@
-import static org.junit.Assert.assertEquals;
+package mylib;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
+
+import mylib.datastructures.nodes.TNode;
 
 public class TNodeTest {
     

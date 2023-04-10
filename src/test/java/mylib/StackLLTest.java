@@ -1,15 +1,19 @@
+package mylib;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class StackLL {
+import mylib.datastructures.linear.StackLL;
+import mylib.datastructures.nodes.SNode;
+
+public class StackLLTest {
 
     private StackLL stack;
     
     @Before
     public void setUp() throws Exception {
-        stack = new StackLinkedList();
+        stack = new StackLL();
     }
 
     @Test

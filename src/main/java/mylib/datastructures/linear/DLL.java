@@ -244,6 +244,18 @@ public class DLL {
         }
         System.out.println();
     }
+
+    public DNode getHead() {
+        return head;
+    }
+
+    public DNode getTail() {
+        return tail;
+    }
+
+    public int getSize() {
+        return size;
+    }
 }  
 
 /*package mylib.datastructures.linear;

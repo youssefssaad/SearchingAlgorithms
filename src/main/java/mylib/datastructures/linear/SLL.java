@@ -115,6 +115,10 @@ public class SLL {
         }
         size--;
     }
+
+    public SNode getTail() {
+        return tail;
+    }
     
     public void delete(SNode node) {
         if (head == null) {

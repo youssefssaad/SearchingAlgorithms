@@ -57,6 +57,10 @@ public class StackLL extends SLL{
         return size;
     }
 
+    public int top() {
+        return top.getData();
+    }
+
 }
 
 /*import static org.junit.Assert.*;

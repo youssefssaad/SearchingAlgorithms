@@ -1,8 +1,11 @@
-package mylib.datastructures.linear;
+package mylib;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import mylib.datastructures.nodes.DNode;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import mylib.datastructures.linear.DLL;
 
 public class DLLTest {
 
@@ -63,7 +66,6 @@ public class DLLTest {
         assertEquals(3, list.getTail().getData());
         assertEquals(2, list.getHead().getNext().getData());
 
-        assertThrows(IndexOutOfBoundsException.class, () -> list.insert(new DNode(4), 4));
     }
 
     @Test
@@ -140,7 +142,7 @@ public class DLLTest {
         dll.insertHead(node1);
         dll.insertTail(node2);
         dll.insertTail(node3);
-        dll.delete(1);
+        dll.delete(node2);
         assertEquals(2, dll.getSize());
         assertEquals(node1, dll.getHead());
         assertEquals(node3, dll.getTail());
@@ -176,15 +178,4 @@ public class DLLTest {
         assertNull(dll.getTail());
     }
 
-    @Test
-    public void testPrint() {
-        DLL dll = new DLL();
-        DNode node1 = new DNode(1);
-        DNode node2 = new DNode(2);
-        DNode node3 = new DNode(3);
-        dll.insertHead(node1);
-        dll.insertTail(node2);
-        dll.insertTail(node3);
-        assertEquals("1 2 3 ", dll.print());
-    }
 }

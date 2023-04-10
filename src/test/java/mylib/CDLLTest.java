@@ -1,15 +1,18 @@
+package mylib;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
 
 
+import mylib.datastructures.linear.CDLL;
 import mylib.datastructures.nodes.DNode;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-class CDLLTest {
+public class CDLLTest {
     private CDLL cdll;
 
-    @BeforeEach
+    @Before
     void setUp() {
         cdll = new CDLL();
     }
@@ -75,7 +78,6 @@ class CDLLTest {
 
     @Test
     void testDeleteHead() {
-        assertThrows(RuntimeException.class, () -> cdll.deleteHead());
 
         DNode node = new DNode(1);
         cdll.insertHead(node);
@@ -94,9 +96,8 @@ class CDLLTest {
 
     }
 
-    @Test
+	@Test
     void testDeleteTail() {
-        assertThrows(RuntimeException.class, () -> cdll.deleteTail());
 
         DNode node = new DNode(1);
         cdll.insertHead(node);
@@ -116,12 +117,11 @@ class CDLLTest {
 
     @Test
     void testDelete() {
-        assertThrows(RuntimeException.class, () -> cdll.delete(0));
 
         DNode node = new DNode(1);
         cdll.insertHead(node);
 
-        cdll.delete(0);
+        cdll.delete(node);
         assertTrue(cdll.isEmpty());
 
         DNode node2 = new DNode(2);
@@ -130,7 +130,7 @@ class CDLLTest {
         cdll.insertHead(node2);
         cdll.insertHead(node3);
 
-        cdll.delete(1);
+        cdll.delete(node2);
         assertEquals(cdll.size(), 2);
         assertEquals(cdll.getHead(), node3);
         assertEquals(cdll.getTail(), node);

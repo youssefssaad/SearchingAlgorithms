@@ -127,7 +127,7 @@ public class AVL extends BST {
         balance(node);
     }
 
-    private TNode delete(TNode current, int val) {
+    public TNode delete(TNode current, int val) {
         if (val < current.getData()) {
             current.setLeft(delete(current.getLeft(), val));
         } else if (val > current.getData()) {

@@ -1,7 +1,12 @@
-import mylib.datastructures.nodes.TNode;
-import org.junit.jupiter.api.Test;
+package mylib;
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
+
+import mylib.datastructures.nodes.TNode;
+import mylib.datastructures.trees.AVL;
+
 
 public class AVLTest {
 

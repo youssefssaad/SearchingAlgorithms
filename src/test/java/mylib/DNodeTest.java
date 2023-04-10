@@ -1,7 +1,10 @@
-
-
-import org.junit.Test;
+package mylib;
 import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import mylib.datastructures.nodes.DNode;
 
 public class DNodeTest {
 

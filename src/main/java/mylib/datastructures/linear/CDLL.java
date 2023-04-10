@@ -216,6 +216,17 @@ public class CDLL extends DLL {
         System.out.println("Sorted Status: " + isSorted());
     }
 
+    public int size() {
+        return size;
+    }
+
+    public DNode getHead() {
+        return head;
+    }
+
+    public DNode getTail() {
+        return tail;
+    }
 }
 
 /* package mylib.datastructures.linear;
