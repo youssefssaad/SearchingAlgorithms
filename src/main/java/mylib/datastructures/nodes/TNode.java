@@ -81,3 +81,52 @@ public class TNode {
     }
 }
 
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Test default constructor
+        TNode node1 = new TNode();
+        assertEquals(0, node1.getData());
+        assertNull(node1.getLeftChild());
+        assertNull(node1.getRightChild());
+        assertNull(node1.getParent());
+        assertEquals(0, node1.getBalance());
+
+        // Test overload constructor
+        TNode leftChild = new TNode(3, 0, null, null, null);
+        TNode rightChild = new TNode(7, 0, null, null, null);
+        TNode parent = new TNode(5, 0, null, leftChild, rightChild);
+        TNode node2 = new TNode(10, 1, parent, null, null);
+        assertEquals(10, node2.getData());
+        assertNull(node2.getLeftChild());
+        assertNull(node2.getRightChild());
+        assertEquals(parent, node2.getParent());
+        assertEquals(1, node2.getBalance());
+
+        TNode node3 = new TNode(15, 0, parent, null, null);
+        TNode node4 = new TNode(28, 0, rightChild, null, null);
+
+        // test getters and setters
+        node1.setData(20);
+        assertEquals(20, node1.getData());
+
+        node1.setParent(node4);
+        assertEquals(node4, node1.getParent());
+
+        node1.setLeftChild(node2);
+        assertEquals(node2, node1.getLeftChild());
+
+        node1.setRightChild(node3);
+        assertEquals(node3, node1.getRightChild());
+
+        node1.setBalance(-1);
+        assertEquals(-1, node1.getBalance());
+
+        // test print method
+        node1.print();
+
+        // test toString method
+        assertEquals("20", node1.toString());
+    }
+}
