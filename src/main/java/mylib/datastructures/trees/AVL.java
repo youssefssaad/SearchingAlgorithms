@@ -33,7 +33,7 @@ public class AVL extends BST {
         return this.root;
     }
 
-    public void balance(TNode node) {
+    private void balance(TNode node) {
         if (node == null) {
             return;
         }
@@ -65,7 +65,7 @@ public class AVL extends BST {
         }
     }
 
-    public int getBalanceFactor(TNode node) {
+    private int getBalanceFactor(TNode node) {
         if (node == null) {
             return 0;
         }
@@ -73,7 +73,7 @@ public class AVL extends BST {
     }
 
 
-    public TNode rotateLeft(TNode node) {
+    private TNode rotateLeft(TNode node) {
         TNode newRoot = node.getRight();
         node.setRight(newRoot.getLeft());
         newRoot.setLeft(node);
@@ -82,7 +82,7 @@ public class AVL extends BST {
         return newRoot;
     }
 
-    public TNode rotateRight(TNode node) {
+    private TNode rotateRight(TNode node) {
         TNode newRoot = node.getLeft();
         node.setLeft(newRoot.getRight());
         newRoot.setRight(node);
@@ -91,7 +91,7 @@ public class AVL extends BST {
         return newRoot;
     }
 
-    private int getHeight(TNode node) {
+    public int getHeight(TNode node) {
         if (node == null) {
             return -1;
         } else {

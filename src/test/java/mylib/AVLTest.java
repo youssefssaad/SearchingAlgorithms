@@ -76,19 +76,4 @@ public class AVLTest {
         avl.insert(null);
         assertNull(avl.getRoot());
     }
-
-    @Test
-    public void testBalanceWithNullNode() {
-        AVL avl = new AVL();
-        avl.balance(null);
-        assertNull(avl.getRoot());
-    }
-
-    @Test
-    public void testBalance() {
-        AVL avl = new AVL();
-        avl.insert(10);
-        avl.balance(avl.getRoot());
-        assertEquals(0, avl.getRoot().getBalance());
-    }
 }

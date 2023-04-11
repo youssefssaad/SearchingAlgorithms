@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3d4c87a-cb8d-4c7f-9efb-ccbcad45235f" name="Changes" comment="complete with tests" />
+    <list default="true" id="d3d4c87a-cb8d-4c7f-9efb-ccbcad45235f" name="Changes" comment="complete with tests">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/trees/AVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mylib/datastructures/trees/AVL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/AVLTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mylib/AVLTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,6 +86,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AVLTest.testGetBalanceFactor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ensf338final" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mylib.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mylib" />
+      <option name="MAIN_CLASS_NAME" value="mylib.AVLTest" />
+      <option name="METHOD_NAME" value="testGetBalanceFactor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AVLTest.testInsertDuplicateValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ensf338final" />
       <extension name="coverage">
@@ -116,6 +136,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AVLTest" />
+        <item itemvalue="JUnit.AVLTest.testGetBalanceFactor" />
         <item itemvalue="JUnit.AVLTest.testInsertDuplicateValue" />
         <item itemvalue="JUnit.AVLTest,testBalanceWithTwoNodes and 4 more" />
         <item itemvalue="JUnit.BSTTest" />
@@ -135,6 +156,8 @@
       <workItem from="1680913080476" duration="12978000" />
       <workItem from="1681078584245" duration="6121000" />
       <workItem from="1681172626565" duration="4566000" />
+      <workItem from="1681188585197" duration="780000" />
+      <workItem from="1681195702865" duration="1623000" />
     </task>
     <task id="LOCAL-00001" summary="setup">
       <created>1680776835965</created>
