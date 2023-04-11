@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3d4c87a-cb8d-4c7f-9efb-ccbcad45235f" name="Changes" comment="complete with tests" />
+    <list default="true" id="d3d4c87a-cb8d-4c7f-9efb-ccbcad45235f" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,21 +68,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AVLTest,testBalanceWithTwoNodes and 4 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ensf338final" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="mylib.AVLTest,testBalanceWithTwoNodes" />
-        <pattern testClass="mylib.AVLTest,testBalanceWithThreeNodes" />
-        <pattern testClass="mylib.AVLTest,testBalanceWithFourNodes" />
-        <pattern testClass="mylib.AVLTest,testBalanceWithFiveNodes" />
-        <pattern testClass="mylib.AVLTest,testBalanceWithDuplicateValues" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AVLTest.testGetBalanceFactor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AVLTest.testAVLIntConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ensf338final" />
       <extension name="coverage">
         <pattern>
@@ -92,13 +78,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="mylib" />
       <option name="MAIN_CLASS_NAME" value="mylib.AVLTest" />
-      <option name="METHOD_NAME" value="testGetBalanceFactor" />
+      <option name="METHOD_NAME" value="testAVLIntConstructor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AVLTest.testInsertDuplicateValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ensf338final" />
       <extension name="coverage">
         <pattern>
@@ -107,14 +93,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="mylib" />
-      <option name="MAIN_CLASS_NAME" value="mylib.AVLTest" />
-      <option name="METHOD_NAME" value="testInsertDuplicateValue" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="mylib.SNodeTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BSTTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StackLLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ensf338final" />
       <extension name="coverage">
         <pattern>
@@ -123,7 +108,22 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="mylib" />
-      <option name="MAIN_CLASS_NAME" value="mylib.BSTTest" />
+      <option name="MAIN_CLASS_NAME" value="mylib.StackLLTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ensf338final" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mylib.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mylib" />
+      <option name="MAIN_CLASS_NAME" value="mylib.TNodeTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,10 +132,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AVLTest" />
-        <item itemvalue="JUnit.AVLTest.testGetBalanceFactor" />
-        <item itemvalue="JUnit.AVLTest.testInsertDuplicateValue" />
-        <item itemvalue="JUnit.AVLTest,testBalanceWithTwoNodes and 4 more" />
-        <item itemvalue="JUnit.BSTTest" />
+        <item itemvalue="JUnit.AVLTest.testAVLIntConstructor" />
+        <item itemvalue="JUnit.TNodeTest" />
+        <item itemvalue="JUnit.StackLLTest" />
+        <item itemvalue="JUnit.SNodeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -153,7 +153,7 @@
       <workItem from="1681078584245" duration="6121000" />
       <workItem from="1681172626565" duration="4566000" />
       <workItem from="1681188585197" duration="780000" />
-      <workItem from="1681195702865" duration="1937000" />
+      <workItem from="1681195702865" duration="2279000" />
     </task>
     <task id="LOCAL-00001" summary="setup">
       <created>1680776835965</created>
@@ -246,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681197724939</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="commit">
+      <created>1681197913052</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681197913052</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +291,7 @@
     <MESSAGE value="added testing" />
     <MESSAGE value="small error fix" />
     <MESSAGE value="complete with tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete with tests" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>

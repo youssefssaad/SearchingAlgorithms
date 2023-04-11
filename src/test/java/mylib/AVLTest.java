@@ -76,4 +76,26 @@ public class AVLTest {
         avl.insert(null);
         assertNull(avl.getRoot());
     }
+
+    @Test
+    public void testAVLIntConstructor() {
+        AVL avl = new AVL(5);
+        TNode root = avl.getRoot();
+        assertNotNull(root);
+    }
+
+    @Test
+    public void testAVLTNodeConstructorNull() {
+        AVL avl = new AVL(null);
+        assertNull(avl.getRoot());
+    }
+
+    @Test
+    public void testAVLTNodeConstructor() {
+        TNode node = new TNode(5, 0, null, null, null);
+        AVL avl = new AVL(node);
+        TNode root = avl.getRoot();
+        assertNotNull(root);
+        assertSame(node, root);
+    }
 }
