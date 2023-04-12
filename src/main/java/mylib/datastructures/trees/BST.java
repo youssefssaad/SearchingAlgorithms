@@ -8,31 +8,55 @@ public class BST {
     private TNode root;     //references the root of the tree
 
     // Default constructor initializing root to null
+    /**
+     * Default constructor
+     */
     public BST(){
         root = null;
     }
 
     // Overload constructor BST(int val)
+    /**
+     * Overload constructor
+     * @param val
+     */
     public BST(int val) {
         root = new TNode(val);
     }
 
     // Overload constructor BST(TNode obj)
+    /**
+     * Overload constructor
+     * @param obj
+     */
     public BST(TNode obj) {
         root = obj;
     }
 
     // Getters and setters for root
 
+    /**
+     * getter for root
+     * @return  root
+     */
     public TNode getRoot(){
         return root;
     }
 
+    /**
+     * setter for root
+     * @param root
+     */
     public void setRoot(TNode root){
         this.root = root;
     }
 
     // Recursive helper method to insert a new node into the tree
+    /**
+     * Recursive helper method to insert a new node into the tree
+     * @param current
+     * @param newNode
+     */
     private void insertNode(TNode current, TNode newNode) {
         if (newNode.getData() < current.getData()) {
             if (current.getLeft() == null) {
@@ -49,6 +73,11 @@ public class BST {
         }
     }
 
+    // Insert a new node into the tree
+    /**
+     * Insert a new node into the tree
+     * @param node
+     */
     public void insert(TNode node) {
         if (root == null) {
             root = node;
@@ -57,12 +86,21 @@ public class BST {
         }
     }
 
+    /**
+     * Insert a new node into the tree
+     * @param val
+     */
     public void insert(int val) {
         TNode node = new TNode(val);
         insert(node);
     }
 
     // Helper method to find the minimum node in a subtree
+    /**
+     * Helper method to find the minimum node in a subtree
+     * @param node
+     * @return nodeMin
+     */
     private TNode findMinNode(TNode node) {
         TNode nodeMin = node;
         while (node.getLeft() != null) {
@@ -72,6 +110,12 @@ public class BST {
     }
 
     // Recursive helper method to delete a node with a given value from the tree
+    /**
+     * Recursive helper method to delete a node with a given value from the tree
+     * @param current
+     * @param val
+     * @return current
+     */
     private TNode deleteNode(TNode current, int val) {
         if (current == null) {
             return null;
@@ -95,11 +139,19 @@ public class BST {
         return current;
     }
 
+    /** 
+     * Delete a node with a given value from the tree
+     */
     public void delete(int val) {
         root = deleteNode(root, val);
     }
 
     // Search int value
+    /**
+     * Search int value
+     * @param val
+     * @return current
+     */
     public TNode search(int val) {
         TNode current = root;
         while (current != null) {
@@ -115,6 +167,10 @@ public class BST {
     }
 
     // In-order traversal
+    /**
+     * print In-order
+     * @param node
+     */
     private void printInOrder(TNode node) {
         if (node != null) {
             printInOrder(node.getLeft());
@@ -123,11 +179,17 @@ public class BST {
         }
     }
 
+    /**
+     * print In Order
+     */
     public void printInOrder() {
         printInOrder(root);
     }
 
     // Breadth-first traversal
+    /**
+     * print Breadth-first
+     */
     public void printBF() {
         Queue<TNode> queue = new LinkedList<>();
         if (root != null) {

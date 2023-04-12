@@ -5,26 +5,43 @@ public class SNode {
     private int data;   // data stored in the node
     private SNode next;  // reference to the next node in the list
     
-    // constructor to create a new node with given data
+    /**
+     * Default constructor
+     * @param data
+     */
     public SNode(int data) {
         this.data = data;
         this.next = null;
     }
     
-    // getter and setter methods for data
+    /**
+     * getter for data
+     * @return data
+     */
     public int getData() {
         return data;
     }
     
+    /**
+     * setter for data
+     * @param data
+     */
     public void setData(int data) {
         this.data = data;
     }
     
-    // getter and setter methods for next node reference
+    /**
+     * getter for next node reference
+     * @return next
+     */
     public SNode getNext() {
         return next;
     }
     
+    /**
+     * setter for next node reference
+     * @param next
+     */
     public void setNext(SNode next) {
         this.next = next;
     }

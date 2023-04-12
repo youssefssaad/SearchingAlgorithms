@@ -8,12 +8,19 @@ public class CSLL extends SLL {
     private SNode tail;
     private int size;
 
+    /**
+     * Default constructor
+     */
     public CSLL() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
 
+    /**
+     * Constructor with a node
+     * @param node
+     */
     public CSLL(SNode node) {
         this.head = node;
         this.head.setNext(head);
@@ -21,6 +28,10 @@ public class CSLL extends SLL {
         this.size = 1;
     }
 
+    /**
+     * inserts a head node
+     * @param node
+     */
     @Override
     public void insertHead(SNode node) {
         if (isEmpty()) {
@@ -38,6 +49,10 @@ public class CSLL extends SLL {
         size++;
     }
 
+    /**
+     * inserts a tail node
+     * @param node
+     */
     @Override
     public void insertTail(SNode node) {
         if (isEmpty()) {
@@ -54,6 +69,11 @@ public class CSLL extends SLL {
         size++;
     }
 
+    /**
+     * inserts a node at a given position
+     * @param node
+     * @param position
+     */
     @Override
     public void insert(SNode node, int position) {
         if (position < 0 || position > size) {
@@ -75,6 +95,10 @@ public class CSLL extends SLL {
         }
     }
 
+    /**
+     * inserts a node into a sorted position
+     * @param node
+     */
     @Override
     public void sortedInsert(SNode node) {
         if (isEmpty()) {
@@ -92,6 +116,11 @@ public class CSLL extends SLL {
         }
     }
 
+    /**
+     * searches for a node
+     * @param node
+     * @return node
+     */
     @Override
     public SNode search(SNode node) {
         SNode current = head;
@@ -104,6 +133,9 @@ public class CSLL extends SLL {
         return null;
     }
 
+    /**
+     * deletes a head node
+     */
     @Override
     public void deleteHead() {
         if (isEmpty()) {
@@ -119,6 +151,9 @@ public class CSLL extends SLL {
         }
     }
 
+    /**
+     * deletes a tail node
+     */
     @Override
     public void deleteTail() {
         if (isEmpty()) {
@@ -136,6 +171,10 @@ public class CSLL extends SLL {
         }
     }
 
+    /**
+     * deletes a node at a given position
+     * @param position
+     */
     @Override
     public void delete(SNode node) {
         if (isEmpty()) {
@@ -170,6 +209,10 @@ public class CSLL extends SLL {
         System.out.println("Node not found. Deletion failed.");
     }
     
+    /**
+     * sorts the list
+     * @param node
+     */
     @Override
     public void sort() {
         if (isEmpty()) {
@@ -193,6 +236,10 @@ public class CSLL extends SLL {
         }
     }
     
+    /**
+     * checks if the list is sorted
+     * @return boolean
+     */
     @Override
     public boolean isSorted() {
         if (isEmpty() || head == tail) {
@@ -209,6 +256,9 @@ public class CSLL extends SLL {
         return true;
     }
     
+    /**
+     * prints the list
+     */
     @Override
     public void print() {
         if (isEmpty()) {

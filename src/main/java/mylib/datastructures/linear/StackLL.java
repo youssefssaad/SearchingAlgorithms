@@ -7,17 +7,27 @@ public class StackLL extends SLL{
     private SNode top;
     private int size;
 
+    /**
+     * Default constructor
+     */
     public StackLL() {
         top = null;
         size = 0;
     }
 
+    /**
+     * Constructor with a node
+     * @param node
+     */
     public StackLL(SNode node) {
         top = node;
         size = 1;
     }
 
-    //not calling super as the insertHead method is different
+    /**
+     * Pushes a node onto the stack
+     * @param data
+     */
     public void push(int data) {
         SNode newNode = new SNode(data);
         if (top == null) {
@@ -29,7 +39,10 @@ public class StackLL extends SLL{
         size++;
     }
 
-    //not calling super as the interaction is different
+    /**
+     * Pops a node off the stack
+     * @return data
+     */
     public int pop() {
         if (isEmpty()) {
             throw new IllegalStateException("Stack is empty");
@@ -40,7 +53,10 @@ public class StackLL extends SLL{
         return data;
     }
 
-    //fix to call super
+    /**
+     * Peeks at the top of the stack
+     * @return data
+     */
     public int peek() {
         if (isEmpty()) {
             throw new IllegalStateException("Stack is empty");
@@ -48,18 +64,57 @@ public class StackLL extends SLL{
         return top.getData();
     }
 
+    /**
+     * Returns the size of the stack
+     * @return size
+     */
     @Override
     public boolean isEmpty() {
         return top == null;
     }
 
+    /**
+     * Returns the size of the stack
+     * @return size
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * Returns the top of the stack
+     * @return top
+     */
     public int top() {
         return top.getData();
     }
+
+    @Override
+    public void insertHead(SNode node) {}
+
+    @Override
+    public void insertTail(SNode node) {}
+
+    @Override
+    public void insert(SNode node, int index) {}
+
+    @Override
+    public void sortedInsert(SNode node) {}
+
+    @Override
+    public void deleteHead() {}
+
+    @Override
+    public void deleteTail() {}
+
+    @Override
+    public void delete(SNode node) {}
+
+    @Override
+    public void sort() {}
+
+    @Override
+    public void clear() {}
 
 }
 

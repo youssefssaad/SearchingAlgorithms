@@ -7,7 +7,9 @@ public class TNode {
     private TNode parent;      // reference to the parent node
     private int balance;       // balance factor of the node
 
-    // default constructor
+    /**
+     * Default constructor
+     */
     public TNode() {
         this.data = 0;
         this.left = null;
@@ -16,6 +18,10 @@ public class TNode {
         this.balance = 0;
     }
 
+    /**
+     * Overload constructor
+     * @param data
+     */
     public TNode(int data) {
         this.data = data;
         this.left = null;
@@ -24,7 +30,14 @@ public class TNode {
         this.balance = 0;
     }
 
-    // overload constructor
+    /**
+     * Overload constructor 2
+     * @param data
+     * @param balance
+     * @param parent
+     * @param left
+     * @param right
+     */
     public TNode(int data, int balance, TNode parent, TNode left, TNode right) {
         this.data = data;
         this.left = left;
@@ -34,56 +47,101 @@ public class TNode {
     }
     
     // getter and setter methods for data
+    /**
+     * getter for data
+     * @return data
+     */
     public int getData() {
         return data;
     }
     
+    /**
+     * setter for data
+     * @param data
+     */
     public void setData(int data) {
         this.data = data;
     }
     
-    // getter and setter methods for left child node reference
+    /**
+     * getter for left child node reference
+     * @return left
+     */
     public TNode getLeft() {
         return left;
     }
     
+    /**
+     * setter for left child node reference
+     * @param left
+     */
     public void setLeft(TNode left) {
         this.left = left;
     }
     
     // getter and setter methods for right child node reference
+    /**
+     * getter for right child node reference
+     * @return right
+     */
     public TNode getRight() {
         return right;
     }
     
+    /**
+     * setter for right child node reference
+     * @param right
+     */
     public void setRight(TNode right) {
         this.right = right;
     }
 
     // getter and setter methods for parent node reference
+    /**
+     * getter for parent node reference
+     * @return parent
+     */
     public TNode getParent() {
         return parent;
     }
 
+    /**
+     * setter for parent node reference
+     * @param parent
+     */
     public void setParent(TNode parent) {
         this.parent = parent;
     }
 
     // getter and setter methods for balance factor
+    /**
+     * getter for balance factor
+     * @return balance
+     */
     public int getBalance() {
         return balance;
     }
 
+    /**
+     * setter for balance factor
+     * @param balance
+     */
     public void setBalance(int balance) {
         this.balance = balance;
     }
 
     // print method to print node information in a user-friendly format
+    /**
+     * print method to print node information in a user-friendly format
+     */
     public void print() {
         System.out.println("Data: " + data + ", Balance: " + balance);
     }
 
     // toString method to return data as a string
+    /**
+     * toString method to return data as a string
+     */
     public String toString() {
         return Integer.toString(data);
     }

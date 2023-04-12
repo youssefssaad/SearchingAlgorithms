@@ -7,21 +7,28 @@ public class DLL {
     private DNode tail;
     private int size;
 
-    // Constructor with no arguments
+    /**
+     * Default constructor
+     */
     public DLL() {
         head = null;
         tail = null;
         size = 0;
     }
 
-    // Constructor with node argument to use as head
+    /**
+     * Constructor with a node
+     * @param headNode
+     */
     public DLL(DNode headNode) {
         head = headNode;
         tail = headNode;
         size = 1;
     }
 
-    // Inserts node at the head of the list
+    /**
+     * inserts a head node
+     */
     public void insertHead(DNode node) {
         if (head == null) {
             head = node;
@@ -34,7 +41,9 @@ public class DLL {
         size++;
     }
 
-    // Inserts node at the tail of the list
+    /**
+     * inserts a tail node
+     */
     public void insertTail(DNode node) {
         if (tail == null) {
             head = node;
@@ -47,7 +56,11 @@ public class DLL {
         size++;
     }
 
-    // Inserts node at the specified position in the list
+    /**
+     * inserts a node at a given position
+     * @param node
+     * @param position
+     */
     public void insert(DNode node, int position) {
         if (position < 0 || position > size) {
             throw new IndexOutOfBoundsException();
@@ -69,7 +82,10 @@ public class DLL {
         }
     }
 
-    // Inserts node in its proper position in a sorted list
+    /**
+     * inserts the node in a sorted manner
+     * @param node
+     */
     public void sortedInsert(DNode node) {
         if (!isSorted()) {
             sort();
@@ -91,7 +107,10 @@ public class DLL {
         }
     }
 
-    // Looks up node in the list, returns the node if found, otherwise null
+    /**
+     * searches the list
+     * @param node
+     */
     public DNode search(DNode node) {
         DNode current = head;
         while (current != null) {
@@ -103,7 +122,9 @@ public class DLL {
         return null;
     }
 
-    // Deletes the head node
+    /**
+     * deletes the head node
+     */
     public void deleteHead() {
         if (head == null) {
             return;
@@ -117,7 +138,10 @@ public class DLL {
         size--;
     }
 
-    // Deletes the tail node
+    
+    /**
+     * deletes the tail node
+     */
     public void deleteTail() {
         if (tail == null) {
             return;
@@ -131,6 +155,10 @@ public class DLL {
         size--;
     }
 
+    /**
+     * deletes a given node 
+     * @param node
+     */
     public void delete(DNode node) {
         if (node == null || head == null) {
             return;
@@ -168,6 +196,9 @@ public class DLL {
         size--;
     }
 
+    /**
+     *  sort the list
+     */
     public void sort() {
         if (head == null) {
             return;
@@ -201,6 +232,10 @@ public class DLL {
         }
     }
 
+    /**
+     * checks if the list is sorted
+     * @return true if sorted, false otherwise
+     */
     public boolean isSorted() {
         if (head == null || head.getNext() == null) {
             return true;
@@ -215,6 +250,9 @@ public class DLL {
         return true;
     }
 
+    /** 
+     * removes all elements from the list
+     */
     public void clear() {
         if (head == null) {
             return;
@@ -231,6 +269,9 @@ public class DLL {
         size = 0;
     }
 
+    /**
+     * prints the list
+     */
     public void print() {
         if (head == null) {
             System.out.println("The list is empty.");
@@ -245,14 +286,23 @@ public class DLL {
         System.out.println();
     }
 
+    /**
+     * @return the head
+     */
     public DNode getHead() {
         return head;
     }
 
+    /**
+     * @return the tail
+     */
     public DNode getTail() {
         return tail;
     }
 
+    /**
+     * @return the size
+     */
     public int getSize() {
         return size;
     }

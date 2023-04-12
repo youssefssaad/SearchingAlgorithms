@@ -6,36 +6,60 @@ public class DNode {
     private DNode next;    // reference to the next node in the list
 
     
-    // constructor to create a new node with given data
+    /**
+     * Default constructor
+     * @param data
+     */
     public DNode(int data) {
         this.data = data;
         this.prev = null;
         this.next = null;
     }
     
-    // getter and setter methods for data
+    /**  
+     * getter for data
+     * @return data
+     */
     public int getData() {
         return data;
     }
     
+    /**
+     * setter for data
+     * @param data
+     */
     public void setData(int data) {
         this.data = data;
     }
     
-    // getter and setter methods for previous node reference
+    /**
+     * getter for prev node reference
+     * @return prev
+     */
     public DNode getPrev() {
         return prev;
     }
 
+    /**
+     * setter for prev node reference
+     * @param prev
+     */
     public void setPrev(DNode prev) {
         this.prev = prev;
     }
     
-    // getter and setter methods for next node reference
+    /**
+     * getter for next node reference
+     * @return next
+     */
     public DNode getNext() {
         return next;
     }
     
+    /**
+     * setter for next node reference
+     * @param next
+     */
     public void setNext(DNode next) {
         this.next = next;
     }

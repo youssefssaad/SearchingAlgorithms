@@ -5,27 +5,38 @@ import mylib.datastructures.nodes.SNode;
 
 public class QueueLL extends SLL {
     
-    // Constructor to initialize an empty QueueLinkedList
+    /**
+     * Default constructor
+     */
     public QueueLL() {
         super();
     }
     
-    // Add element to the back of the queue
+    /**
+     * Constructor with a node
+     * @param newNode
+     */
     public void enqueue(SNode newNode) {
         insertTail(newNode);
     }
     
-    // Remove element from the front of the queue
+    /**
+     * removes the head from the queue
+     */
     public void dequeue() {
         deleteHead();
     }
     
-    // Check if the queue is empty
+    /**
+     * checkes if the queue is empty
+     */
     public boolean isEmpty() {
         return getSize() == 0;
     }
     
-    // Print the elements in the queue
+    /**
+     * prints the queue
+     */
     public void print() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
@@ -38,6 +49,26 @@ public class QueueLL extends SLL {
             System.out.println();
         }
     }
+    @Override
+    public void insertHead(SNode node) {}
+
+    @Override
+    public void insert(SNode node, int index) {}
+
+    @Override
+    public void sortedInsert(SNode node) {}
+
+    @Override
+    public void deleteTail() {}
+
+    @Override
+    public void delete(SNode node) {}
+
+    @Override
+    public void sort() {}
+
+    @Override
+    public void clear() {}
 }
 
 /*public class QueueLinkedListTest {

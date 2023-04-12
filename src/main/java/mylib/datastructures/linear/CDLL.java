@@ -7,12 +7,19 @@ public class CDLL extends DLL {
     private DNode tail;
     private int size;
 
+    /**
+     * Default constructor
+     */
     public CDLL() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
     
+    /**
+     * Constructor with a node
+     * @param node
+     */
     public CDLL(DNode node) {
         this.head = node;
         head.setNext(head);
@@ -20,10 +27,18 @@ public class CDLL extends DLL {
         this.size = 1;
     }
     
+    /**
+     * Returns the size of the list
+     * @return size
+     */
     public boolean isEmpty() {
         return size == 0;
     }
     
+    /**
+     * inserts a head node
+     * @param node
+     */
     @Override
     public void insertHead(DNode node) {
         if (isEmpty()) {
@@ -38,6 +53,10 @@ public class CDLL extends DLL {
         size++;
     }
     
+    /**
+     * inserts a tail node
+     * @param node
+     */
     @Override
     public void insertTail(DNode node) {
         if (isEmpty()) {
@@ -53,6 +72,11 @@ public class CDLL extends DLL {
         size++;
     }
     
+    /**
+     * inserts a node at a given position
+     * @param node
+     * @param position
+     */
     @Override
     public void insert(DNode node, int position) {
         if (position < 0 || position > size) {
@@ -75,6 +99,9 @@ public class CDLL extends DLL {
         }
     }
     
+    /**
+     * deletes the head node
+     */
     @Override
     public void deleteHead() {
         if (isEmpty()) {
@@ -91,6 +118,9 @@ public class CDLL extends DLL {
         size--;
     }
     
+    /**
+     * deletes the tail node
+     */
     @Override
     public void deleteTail() {
         if (isEmpty()) {
@@ -107,6 +137,10 @@ public class CDLL extends DLL {
         size--;
     }
     
+    /**
+     * deletes a node at a given position
+     * @param position
+     */
     @Override
     public void delete(DNode node) {
         if (isEmpty()) {
@@ -123,6 +157,10 @@ public class CDLL extends DLL {
         }
     }
     
+    /**
+     * deletes a node at a given position
+     * @param position
+     */
     @Override
     public void sort() {
         if (isEmpty() || isSorted()) {
@@ -183,6 +221,10 @@ public class CDLL extends DLL {
         }
     }
     
+    /**
+     * checks if the list is sorted
+     * @return true if sorted, false if not
+     */
     @Override
     public boolean isSorted() {
         if (isEmpty() || head == tail) {
@@ -199,6 +241,9 @@ public class CDLL extends DLL {
         return true;
     }
 
+    /**
+     * prints the list
+     */
     @Override
     public void print() {
         if (isEmpty()) {
@@ -216,14 +261,26 @@ public class CDLL extends DLL {
         System.out.println("Sorted Status: " + isSorted());
     }
 
+    /**
+     * returns the size of the list
+     * @return size
+     */
     public int size() {
         return size;
     }
 
+    /**
+     *  gets the head node
+     * @return head
+     */
     public DNode getHead() {
         return head;
     }
 
+    /**
+     * gets the tail node
+     * @return tail
+     */
     public DNode getTail() {
         return tail;
     }

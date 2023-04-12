@@ -7,18 +7,29 @@ public class SLL {
     private SNode tail;
     private int size;
     
+    /**
+     * Default constructor
+     */
     public SLL() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
     
+    /**
+     * Constructor with a node
+     * @param node
+     */
     public SLL(SNode node) {
         this.head = node;
         this.tail = node;
         this.size = 1;
     }
     
+    /**
+     * inserts a head node
+     * @param node
+     */
     public void insertHead(SNode node) {
         if (head == null) {
             head = node;
@@ -30,6 +41,10 @@ public class SLL {
         size++;
     }
     
+    /**
+     * inserts a tail node
+     * @param node
+     */
     public void insertTail(SNode node) {
         if (head == null) {
             head = node;
@@ -41,6 +56,11 @@ public class SLL {
         size++;
     }
     
+    /**
+     * inserts a node at a given position
+     * @param node
+     * @param position
+     */
     public void insert(SNode node, int position) {
         if (position < 0 || position > size) {
             throw new IndexOutOfBoundsException();
@@ -60,6 +80,10 @@ public class SLL {
         }
     }
     
+    /**
+     * inserts the node in a sorted sorted manner
+     * @param node
+     */
     public void sortedInsert(SNode node) {
         if (!isSorted()) {
             sort();
@@ -82,6 +106,11 @@ public class SLL {
         size++;
     }
     
+    /**
+     * searches the list for a node
+     * @param node
+     * @return the SNode in the list
+     */
     public SNode search(SNode node) {
         SNode curr = head;
         while (curr != null && curr.getData() != node.getData()) {
@@ -90,6 +119,9 @@ public class SLL {
         return curr;
     }
     
+    /**
+     * deletes the head node
+     */
     public void deleteHead() {
         if (head == null) {
             return;
@@ -103,6 +135,9 @@ public class SLL {
         size--;
     }
     
+    /**
+     * deletes the tail node
+     */
     public void deleteTail() {
         if (head == null) {
             return;
@@ -121,10 +156,17 @@ public class SLL {
         size--;
     }
 
+    /** 
+     * @return the tail
+     */
     public SNode getTail() {
         return tail;
     }
     
+    /**
+     * deletes a node
+     * @param node
+     */
     public void delete(SNode node) {
         if (head == null) {
             return;
@@ -147,6 +189,9 @@ public class SLL {
         size--;
     }
     
+    /**
+     * sorts the list
+     */
     public void sort() {
         SNode prev = head;
         SNode curr = prev.getNext();
@@ -179,6 +224,10 @@ public class SLL {
     }
 
 
+    /**
+     * checks if the list is sorted
+     * @return true if sorted, false otherwise
+     */
     public boolean isSorted() {
         if (size < 2) {
             return true;
@@ -195,13 +244,18 @@ public class SLL {
         return true;
     }
 
+    /** 
+     * removes all elements from the list
+     */
     public void clear() {
         while (head != null) {
             deleteHead();
         }
     }
     
-    
+    /**
+     * prints the list
+     */
     public void print() {
         SNode curr = head;
         System.out.println("List length: " + size);
@@ -214,14 +268,24 @@ public class SLL {
         System.out.println();
     }
 
+    /** 
+     * checks if the list is empty
+     * @return true if empty, false otherwise
+     */
     public boolean isEmpty() {
         return head == null;
     }
 
+    /** 
+     * @return the size
+     */
     public int getSize() {
         return size;
     }
 
+    /** 
+     * @return the head
+     */
     public SNode getHead() {
         return head;
     }
