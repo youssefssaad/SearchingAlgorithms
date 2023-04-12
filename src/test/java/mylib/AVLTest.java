@@ -1,4 +1,5 @@
 package mylib;
+
 import static org.junit.Assert.*;
 
 import org.junit.*;
@@ -6,12 +7,16 @@ import org.junit.*;
 import mylib.datastructures.nodes.TNode;
 import mylib.datastructures.trees.AVL;
 
-
 public class AVLTest {
+    private AVL avl;
+
+    @Before
+    public void setUp() {
+        avl = new AVL();
+    }
 
     @Test
     public void testSearch() {
-        AVL avl = new AVL();
         avl.insert(10);
         avl.insert(20);
         avl.insert(30);
@@ -24,8 +29,6 @@ public class AVLTest {
 
     @Test
     public void testInsertAndSearch() {
-        AVL avl = new AVL();
-
         avl.insert(new TNode(5));
         avl.insert(new TNode(3));
         avl.insert(new TNode(7));
@@ -45,8 +48,6 @@ public class AVLTest {
 
     @Test
     public void testDelete() {
-        AVL avl = new AVL();
-
         avl.insert(new TNode(5));
         avl.insert(new TNode(3));
         avl.insert(new TNode(7));
@@ -69,10 +70,8 @@ public class AVLTest {
         assertNull(avl.search(4));
     }
 
-
     @Test
     public void testInsertNullNode() {
-        AVL avl = new AVL();
         avl.insert(null);
         assertNull(avl.getRoot());
     }
@@ -85,17 +84,17 @@ public class AVLTest {
     }
 
     @Test
-    public void testAVLTNodeConstructorNull() {
-        AVL avl = new AVL(null);
-        assertNull(avl.getRoot());
-    }
-
-    @Test
     public void testAVLTNodeConstructor() {
         TNode node = new TNode(5, 0, null, null, null);
         AVL avl = new AVL(node);
         TNode root = avl.getRoot();
         assertNotNull(root);
         assertSame(node, root);
+    }
+
+    @Test
+    public void testAVLTNodeConstructorNull() {
+        AVL avl = new AVL(null);
+        assertNull(avl.getRoot());
     }
 }
