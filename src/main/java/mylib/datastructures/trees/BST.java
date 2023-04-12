@@ -57,6 +57,11 @@ public class BST {
         }
     }
 
+    public void insert(int val) {
+        TNode node = new TNode(val);
+        insert(node);
+    }
+
     // Helper method to find the minimum node in a subtree
     private TNode findMinNode(TNode node) {
         TNode nodeMin = node;

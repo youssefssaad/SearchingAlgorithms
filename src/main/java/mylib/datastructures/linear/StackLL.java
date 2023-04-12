@@ -17,7 +17,7 @@ public class StackLL extends SLL{
         size = 1;
     }
 
-    //fix to call super
+    //not calling super as the insertHead method is different
     public void push(int data) {
         SNode newNode = new SNode(data);
         if (top == null) {
@@ -29,7 +29,7 @@ public class StackLL extends SLL{
         size++;
     }
 
-    //fix to call super
+    //not calling super as the interaction is different
     public int pop() {
         if (isEmpty()) {
             throw new IllegalStateException("Stack is empty");

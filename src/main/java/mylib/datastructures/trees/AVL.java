@@ -105,6 +105,7 @@ public class AVL extends BST {
         }
     }
 
+    @Override
     public void insert(int val) {
         TNode newNode = new TNode(val);
         super.insert(newNode);
