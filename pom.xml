@@ -33,7 +33,7 @@
                 <manifest>
                   <addClasspath>true</addClasspath>
                   <classpathPrefix>lib/</classpathPrefix>
-                  <mainClass>com.example.MyApi</mainClass>
+                  <mainClass>dataTesting.MyApi</mainClass>
                 </manifest>
               </archive>
             </configuration>

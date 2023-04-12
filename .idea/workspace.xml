@@ -6,9 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="d3d4c87a-cb8d-4c7f-9efb-ccbcad45235f" name="Changes" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ensf338final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/AVLTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mylib/AVLTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/BSTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mylib/BSTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/linear/CDLL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/linear/CSLL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/linear/DLL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/linear/QueueLL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/linear/SLL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/linear/StackLL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/nodes/DNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/nodes/SNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/nodes/TNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/trees/AVL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mylib/datastructures/trees/BST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/AVLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/BSTTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/CDLLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/CSLLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/DLLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/DNodeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/QueueLLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/SLLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/SNodeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/StackLLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mylib/TNodeTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +181,7 @@
       <workItem from="1681188585197" duration="780000" />
       <workItem from="1681195702865" duration="2279000" />
       <workItem from="1681338074817" duration="1046000" />
+      <workItem from="1681340784330" duration="1028000" />
     </task>
     <task id="LOCAL-00001" summary="setup">
       <created>1680776835965</created>
